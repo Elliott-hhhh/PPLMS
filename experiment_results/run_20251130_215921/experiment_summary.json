@@ -1,0 +1,51 @@
+[
+  {
+    "Experiment":"vanilla_gpt2",
+    "Type":"vanilla",
+    "Perplexity":42.2878115931,
+    "Diversity TTR":0.1250850818,
+    "Sentiment Accuracy":"N\/A"
+  },
+  {
+    "Experiment":"original_pplm_positive",
+    "Type":"pplm_bow",
+    "Perplexity":39.2625543164,
+    "Diversity TTR":0.2040551813,
+    "Sentiment Accuracy":0.82
+  },
+  {
+    "Experiment":"modified_pplm_positive",
+    "Type":"pplm_bow",
+    "Perplexity":39.8251735128,
+    "Diversity TTR":0.2047199411,
+    "Sentiment Accuracy":0.92
+  },
+  {
+    "Experiment":"original_pplm_negative",
+    "Type":"pplm_bow",
+    "Perplexity":40.2328371572,
+    "Diversity TTR":0.2052538841,
+    "Sentiment Accuracy":0.94
+  },
+  {
+    "Experiment":"modified_pplm_negative",
+    "Type":"pplm_bow",
+    "Perplexity":37.2451376588,
+    "Diversity TTR":0.2068318917,
+    "Sentiment Accuracy":0.94
+  },
+  {
+    "Experiment":"original_pplm_neutral",
+    "Type":"pplm_bow",
+    "Perplexity":40.7388391464,
+    "Diversity TTR":0.1970298792,
+    "Sentiment Accuracy":0.86
+  },
+  {
+    "Experiment":"modified_pplm_neutral",
+    "Type":"pplm_bow",
+    "Perplexity":39.5905274418,
+    "Diversity TTR":0.2084565679,
+    "Sentiment Accuracy":0.94
+  }
+]

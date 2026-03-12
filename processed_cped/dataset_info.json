@@ -1,0 +1,23 @@
+{
+  "total_samples": 94187,
+  "sentiment_distribution": {
+    "neutral": 31758,
+    "positive": 15209,
+    "negative": 47220
+  },
+  "emotion_distribution": {
+    "neutral": 31758,
+    "relaxed": 7467,
+    "anger": 13400,
+    "depress": 9817,
+    "disgust": 1353,
+    "negative-other": 9881,
+    "worried": 6142,
+    "fear": 1980,
+    "happy": 3547,
+    "astonished": 2430,
+    "grateful": 206,
+    "positive-other": 3989,
+    "sadness": 2217
+  }
+}

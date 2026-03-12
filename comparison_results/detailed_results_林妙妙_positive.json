@@ -1,0 +1,78 @@
+{
+  "original": [
+    {
+      "text": "林妙妙说：小明，我今天去学校，看到你和小红在操场上玩，她拿着",
+      "character_hit_rate": 0.015151515151515152,
+      "character_hit_words": [
+        "今天",
+        "学校"
+      ],
+      "sentiment_match": 0.021428571428571425,
+      "text_length": 30,
+      "diversity": 0.9
+    },
+    {
+      "text": "林妙妙开心地说： “我今天去超市买菜，看到一种蔬菜叫“西兰花”，我特别喜欢吃",
+      "character_hit_rate": 0.030303030303030304,
+      "character_hit_words": [
+        "今天",
+        "特别",
+        "一种",
+        "喜欢"
+      ],
+      "sentiment_match": 0.01715686274509804,
+      "text_length": 38,
+      "diversity": 0.875
+    },
+    {
+      "text": "林妙妙思考了一下，然后说：我觉得我们公司现在可能面临一些问题。比如，我们的产品线有点混乱，很多产品名称",
+      "character_hit_rate": 0.022727272727272728,
+      "character_hit_words": [
+        "一下",
+        "觉得",
+        "现在"
+      ],
+      "sentiment_match": 0.015306122448979591,
+      "text_length": 51,
+      "diversity": 0.8928571428571429
+    }
+  ],
+  "emotional": [
+    {
+      "text": "林妙妙说：小明，我今天去学校，看到你和小红在操场上玩，她拿着",
+      "character_hit_rate": 0.015151515151515152,
+      "character_hit_words": [
+        "今天",
+        "学校"
+      ],
+      "sentiment_match": 0.021428571428571425,
+      "text_length": 30,
+      "diversity": 0.9
+    },
+    {
+      "text": "林妙妙开心地说： “我今天去超市买菜，看到一种蔬菜叫“西兰花”，我特别喜欢吃",
+      "character_hit_rate": 0.030303030303030304,
+      "character_hit_words": [
+        "今天",
+        "特别",
+        "一种",
+        "喜欢"
+      ],
+      "sentiment_match": 0.01715686274509804,
+      "text_length": 38,
+      "diversity": 0.875
+    },
+    {
+      "text": "林妙妙思考了一下，然后说：我觉得我们公司现在可能面临一些问题。比如，我们的产品线有点混乱，很多产品名称",
+      "character_hit_rate": 0.022727272727272728,
+      "character_hit_words": [
+        "一下",
+        "觉得",
+        "现在"
+      ],
+      "sentiment_match": 0.015306122448979591,
+      "text_length": 51,
+      "diversity": 0.8928571428571429
+    }
+  ]
+}

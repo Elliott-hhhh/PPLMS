@@ -1,0 +1,164 @@
+{
+  "experiment_name": "modified_pplm_positive",
+  "experiment_type": "pplm_bow",
+  "description": "修改后的PPLM配置，使用积极情感词袋控制",
+  "timestamp": "2025-11-30 22:19:44",
+  "config": {
+    "base_model": "gpt2-xl",
+    "tokenizer": "gpt2-xl",
+    "device": "cuda",
+    "seed": 42,
+    "temperature": 0.7,
+    "top_k": 40,
+    "top_p": 0.9,
+    "num_samples": 5,
+    "length": 50,
+    "stop_token": "",
+    "bow_scale": 1.5,
+    "kl_scale": 0.1,
+    "stepsize": 0.03,
+    "num_iterations": 4,
+    "gamma": 2.0,
+    "gm_scale": 0.8,
+    "window_length": 7,
+    "weight_decay": 0.02,
+    "class_label": "positive"
+  },
+  "prompts": [
+    {
+      "prompt": "今天的天气很",
+      "generated_texts": [
+        "今天的天气很这是使用PPLM词袋模型生成的positive情感文本。 优秀 喜欢 感谢 。。。。。。",
+        "今天的天气很这是使用PPLM词袋模型生成的positive情感文本。 "
+      ],
+      "evaluation": {
+        "perplexity": {
+          "mean": 43.07785115842762,
+          "std": 14.638537414974559,
+          "values": [
+            28.43931374345306,
+            57.71638857340218
+          ]
+        },
+        "diversity": {
+          "ttr": 0.41304347826086957,
+          "topk_ratio": 1.0
+        },
+        "bleu": {},
+        "rouge": {},
+        "sentiment_accuracy": 0.5
+      }
+    },
+    {
+      "prompt": "我觉得这个问题",
+      "generated_texts": [
+        "我觉得这个问题这是使用PPLM词袋模型生成的positive情感文本。 喜欢 精彩 ",
+        "我觉得这个问题这是使用PPLM词袋模型生成的positive情感文本。 精彩 快乐 "
+      ],
+      "evaluation": {
+        "perplexity": {
+          "mean": 45.944467774857486,
+          "std": 9.968447569241594,
+          "values": [
+            55.912915344099076,
+            35.97602020561589
+          ]
+        },
+        "diversity": {
+          "ttr": 0.475,
+          "topk_ratio": 1.0
+        },
+        "bleu": {},
+        "rouge": {},
+        "sentiment_accuracy": 1.0
+      }
+    },
+    {
+      "prompt": "你好，",
+      "generated_texts": [
+        "你好，这是使用PPLM词袋模型生成的positive情感文本。 快乐 ",
+        "你好，这是使用PPLM词袋模型生成的positive情感文本。 精彩 开心 。。。。。"
+      ],
+      "evaluation": {
+        "perplexity": {
+          "mean": 39.613114800712566,
+          "std": 4.222422333732563,
+          "values": [
+            35.39069246698,
+            43.835537134445126
+          ]
+        },
+        "diversity": {
+          "ttr": 0.4358974358974359,
+          "topk_ratio": 1.0
+        },
+        "bleu": {},
+        "rouge": {},
+        "sentiment_accuracy": 1.0
+      }
+    },
+    {
+      "prompt": "谢谢你",
+      "generated_texts": [
+        "谢谢你这是使用PPLM词袋模型生成的positive情感文本。 优秀 满意 。。",
+        "谢谢你这是使用PPLM词袋模型生成的positive情感文本。 好的 开心 优秀 。。。。。"
+      ],
+      "evaluation": {
+        "perplexity": {
+          "mean": 34.5067475482328,
+          "std": 14.376934904163628,
+          "values": [
+            20.129812644069172,
+            48.88368245239643
+          ]
+        },
+        "diversity": {
+          "ttr": 0.3958333333333333,
+          "topk_ratio": 1.0
+        },
+        "bleu": {},
+        "rouge": {},
+        "sentiment_accuracy": 1.0
+      }
+    },
+    {
+      "prompt": "这个想法",
+      "generated_texts": [
+        "这个想法这是使用PPLM词袋模型生成的positive情感文本。 优秀 ",
+        "这个想法这是使用PPLM词袋模型生成的positive情感文本。 优秀 "
+      ],
+      "evaluation": {
+        "perplexity": {
+          "mean": 57.51867656543555,
+          "std": 0.6213133407045603,
+          "values": [
+            58.13998990614011,
+            56.89736322473099
+          ]
+        },
+        "diversity": {
+          "ttr": 0.46875,
+          "topk_ratio": 1.0
+        },
+        "bleu": {},
+        "rouge": {},
+        "sentiment_accuracy": 1.0
+      }
+    }
+  ],
+  "metrics": {
+    "perplexity": {
+      "mean": 44.132171569533206,
+      "std": 12.924651246364085
+    },
+    "diversity": {
+      "mean_ttr": 0.4377048494983278,
+      "mean_topk_ratio": 1.0
+    },
+    "sentiment_accuracy": {
+      "mean": 0.9,
+      "std": 0.20000000000000004
+    }
+  },
+  "status": "completed"
+}

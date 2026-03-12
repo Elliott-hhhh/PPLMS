@@ -1,0 +1,44 @@
+[
+  {
+    "Experiment":"original_pplm_positive",
+    "Type":"pplm_bow",
+    "Perplexity":38.2623307477,
+    "Diversity TTR":0.460521542,
+    "Sentiment Accuracy":0.9
+  },
+  {
+    "Experiment":"modified_pplm_positive",
+    "Type":"pplm_bow",
+    "Perplexity":44.1321715695,
+    "Diversity TTR":0.4377048495,
+    "Sentiment Accuracy":0.9
+  },
+  {
+    "Experiment":"original_pplm_negative",
+    "Type":"pplm_bow",
+    "Perplexity":35.4449677162,
+    "Diversity TTR":0.4621081158,
+    "Sentiment Accuracy":0.8
+  },
+  {
+    "Experiment":"modified_pplm_negative",
+    "Type":"pplm_bow",
+    "Perplexity":39.0919608472,
+    "Diversity TTR":0.4376390589,
+    "Sentiment Accuracy":0.9
+  },
+  {
+    "Experiment":"original_pplm_neutral",
+    "Type":"pplm_bow",
+    "Perplexity":43.3855465368,
+    "Diversity TTR":0.4669245648,
+    "Sentiment Accuracy":0.7
+  },
+  {
+    "Experiment":"modified_pplm_neutral",
+    "Type":"pplm_bow",
+    "Perplexity":44.2058864533,
+    "Diversity TTR":0.4718157182,
+    "Sentiment Accuracy":0.8
+  }
+]

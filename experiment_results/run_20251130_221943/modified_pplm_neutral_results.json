@@ -1,0 +1,164 @@
+{
+  "experiment_name": "modified_pplm_neutral",
+  "experiment_type": "pplm_bow",
+  "description": "修改后的PPLM配置，使用中性情感词袋控制",
+  "timestamp": "2025-11-30 22:19:44",
+  "config": {
+    "base_model": "gpt2-xl",
+    "tokenizer": "gpt2-xl",
+    "device": "cuda",
+    "seed": 42,
+    "temperature": 0.7,
+    "top_k": 40,
+    "top_p": 0.9,
+    "num_samples": 5,
+    "length": 50,
+    "stop_token": "",
+    "bow_scale": 1.5,
+    "kl_scale": 0.1,
+    "stepsize": 0.03,
+    "num_iterations": 4,
+    "gamma": 2.0,
+    "gm_scale": 0.8,
+    "window_length": 7,
+    "weight_decay": 0.02,
+    "class_label": "neutral"
+  },
+  "prompts": [
+    {
+      "prompt": "今天的天气很",
+      "generated_texts": [
+        "今天的天气很这是使用PPLM词袋模型生成的neutral情感文本。 能够 ",
+        "今天的天气很这是使用PPLM词袋模型生成的neutral情感文本。 "
+      ],
+      "evaluation": {
+        "perplexity": {
+          "mean": 53.902075872612635,
+          "std": 2.0571836770909684,
+          "values": [
+            55.9592595497036,
+            51.844892195521666
+          ]
+        },
+        "diversity": {
+          "ttr": 0.4722222222222222,
+          "topk_ratio": 1.0
+        },
+        "bleu": {},
+        "rouge": {},
+        "sentiment_accuracy": 0.5
+      }
+    },
+    {
+      "prompt": "我觉得这个问题",
+      "generated_texts": [
+        "我觉得这个问题这是使用PPLM词袋模型生成的neutral情感文本。 ",
+        "我觉得这个问题这是使用PPLM词袋模型生成的neutral情感文本。 可能 可能 "
+      ],
+      "evaluation": {
+        "perplexity": {
+          "mean": 38.12405133123026,
+          "std": 17.132596855302715,
+          "values": [
+            55.25664818653298,
+            20.991454475927547
+          ]
+        },
+        "diversity": {
+          "ttr": 0.4722222222222222,
+          "topk_ratio": 1.0
+        },
+        "bleu": {},
+        "rouge": {},
+        "sentiment_accuracy": 0.5
+      }
+    },
+    {
+      "prompt": "你好，",
+      "generated_texts": [
+        "你好，这是使用PPLM词袋模型生成的neutral情感文本。 可以 可能 ",
+        "你好，这是使用PPLM词袋模型生成的neutral情感文本。 正常 "
+      ],
+      "evaluation": {
+        "perplexity": {
+          "mean": 45.53779680551742,
+          "std": 7.125667418359736,
+          "values": [
+            52.663464223877156,
+            38.412129387157684
+          ]
+        },
+        "diversity": {
+          "ttr": 0.5,
+          "topk_ratio": 1.0
+        },
+        "bleu": {},
+        "rouge": {},
+        "sentiment_accuracy": 1.0
+      }
+    },
+    {
+      "prompt": "谢谢你",
+      "generated_texts": [
+        "谢谢你这是使用PPLM词袋模型生成的neutral情感文本。 可能 ",
+        "谢谢你这是使用PPLM词袋模型生成的neutral情感文本。 一般 "
+      ],
+      "evaluation": {
+        "perplexity": {
+          "mean": 40.823202459353766,
+          "std": 4.836067084951335,
+          "values": [
+            45.659269544305104,
+            35.987135374402435
+          ]
+        },
+        "diversity": {
+          "ttr": 0.5,
+          "topk_ratio": 1.0
+        },
+        "bleu": {},
+        "rouge": {},
+        "sentiment_accuracy": 1.0
+      }
+    },
+    {
+      "prompt": "这个想法",
+      "generated_texts": [
+        "这个想法这是使用PPLM词袋模型生成的neutral情感文本。 应该 一般 。。。。。。。",
+        "这个想法这是使用PPLM词袋模型生成的neutral情感文本。 也许 "
+      ],
+      "evaluation": {
+        "perplexity": {
+          "mean": 42.64230579766964,
+          "std": 8.814821330477635,
+          "values": [
+            33.82748446719201,
+            51.45712712814728
+          ]
+        },
+        "diversity": {
+          "ttr": 0.4146341463414634,
+          "topk_ratio": 1.0
+        },
+        "bleu": {},
+        "rouge": {},
+        "sentiment_accuracy": 1.0
+      }
+    }
+  ],
+  "metrics": {
+    "perplexity": {
+      "mean": 44.20588645327674,
+      "std": 10.920510648740025
+    },
+    "diversity": {
+      "mean_ttr": 0.4718157181571816,
+      "mean_topk_ratio": 1.0
+    },
+    "sentiment_accuracy": {
+      "mean": 0.8,
+      "std": 0.2449489742783178
+    }
+  },
+  "status": "completed"
+}

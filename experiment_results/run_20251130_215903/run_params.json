@@ -1,0 +1,9 @@
+{
+  "experiments": null,
+  "model_type": null,
+  "num_prompts": null,
+  "max_samples": null,
+  "output_dir": "c:\\Users\\23921\\PycharmProjects\\pythonProject\\PPLM\\PPLM\\experiment_results",
+  "debug": false,
+  "use_cache": false
+}

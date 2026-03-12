@@ -1,0 +1,164 @@
+{
+  "experiment_name": "original_pplm_negative",
+  "experiment_type": "pplm_bow",
+  "description": "原始PPLM配置，使用消极情感词袋控制",
+  "timestamp": "2025-11-30 22:19:44",
+  "config": {
+    "base_model": "gpt2-xl",
+    "tokenizer": "gpt2-xl",
+    "device": "cuda",
+    "seed": 42,
+    "temperature": 0.7,
+    "top_k": 40,
+    "top_p": 0.9,
+    "num_samples": 5,
+    "length": 50,
+    "stop_token": "",
+    "bow_scale": 0.9,
+    "kl_scale": 0.05,
+    "stepsize": 0.02,
+    "num_iterations": 3,
+    "gamma": 1.5,
+    "gm_scale": 0.9,
+    "window_length": 5,
+    "weight_decay": 0.01,
+    "class_label": "negative"
+  },
+  "prompts": [
+    {
+      "prompt": "今天的天气很",
+      "generated_texts": [
+        "今天的天气很这是使用PPLM词袋模型生成的negative情感文本。 ",
+        "今天的天气很这是使用PPLM词袋模型生成的negative情感文本。 糟糕 问题 不好 。。。。。"
+      ],
+      "evaluation": {
+        "perplexity": {
+          "mean": 36.16457072272286,
+          "std": 6.529707024833538,
+          "values": [
+            29.634863697889323,
+            42.6942777475564
+          ]
+        },
+        "diversity": {
+          "ttr": 0.4222222222222222,
+          "topk_ratio": 1.0
+        },
+        "bleu": {},
+        "rouge": {},
+        "sentiment_accuracy": 0.5
+      }
+    },
+    {
+      "prompt": "我觉得这个问题",
+      "generated_texts": [
+        "我觉得这个问题这是使用PPLM词袋模型生成的negative情感文本。 难过 ",
+        "我觉得这个问题这是使用PPLM词袋模型生成的negative情感文本。 难过 麻烦 "
+      ],
+      "evaluation": {
+        "perplexity": {
+          "mean": 45.911419625722885,
+          "std": 8.985902017687408,
+          "values": [
+            54.897321643410294,
+            36.92551760803548
+          ]
+        },
+        "diversity": {
+          "ttr": 0.47368421052631576,
+          "topk_ratio": 1.0
+        },
+        "bleu": {},
+        "rouge": {},
+        "sentiment_accuracy": 1.0
+      }
+    },
+    {
+      "prompt": "你好，",
+      "generated_texts": [
+        "你好，这是使用PPLM词袋模型生成的negative情感文本。 麻烦 ",
+        "你好，这是使用PPLM词袋模型生成的negative情感文本。 失望 "
+      ],
+      "evaluation": {
+        "perplexity": {
+          "mean": 21.701203126668076,
+          "std": 0.8598327263857204,
+          "values": [
+            22.561035853053795,
+            20.841370400282354
+          ]
+        },
+        "diversity": {
+          "ttr": 0.5,
+          "topk_ratio": 1.0
+        },
+        "bleu": {},
+        "rouge": {},
+        "sentiment_accuracy": 1.0
+      }
+    },
+    {
+      "prompt": "谢谢你",
+      "generated_texts": [
+        "谢谢你这是使用PPLM词袋模型生成的negative情感文本。 讨厌 讨厌 不好 。。。。。",
+        "谢谢你这是使用PPLM词袋模型生成的negative情感文本。 "
+      ],
+      "evaluation": {
+        "perplexity": {
+          "mean": 38.139648253305516,
+          "std": 8.61946287854571,
+          "values": [
+            29.52018537475981,
+            46.75911113185123
+          ]
+        },
+        "diversity": {
+          "ttr": 0.4146341463414634,
+          "topk_ratio": 1.0
+        },
+        "bleu": {},
+        "rouge": {},
+        "sentiment_accuracy": 0.5
+      }
+    },
+    {
+      "prompt": "这个想法",
+      "generated_texts": [
+        "这个想法这是使用PPLM词袋模型生成的negative情感文本。 麻烦 ",
+        "这个想法这是使用PPLM词袋模型生成的negative情感文本。 问题 "
+      ],
+      "evaluation": {
+        "perplexity": {
+          "mean": 35.307996852785834,
+          "std": 1.1360941892036855,
+          "values": [
+            34.17190266358215,
+            36.44409104198952
+          ]
+        },
+        "diversity": {
+          "ttr": 0.5,
+          "topk_ratio": 1.0
+        },
+        "bleu": {},
+        "rouge": {},
+        "sentiment_accuracy": 1.0
+      }
+    }
+  ],
+  "metrics": {
+    "perplexity": {
+      "mean": 35.44496771624104,
+      "std": 10.059266821281522
+    },
+    "diversity": {
+      "mean_ttr": 0.46210811581800026,
+      "mean_topk_ratio": 1.0
+    },
+    "sentiment_accuracy": {
+      "mean": 0.8,
+      "std": 0.2449489742783178
+    }
+  },
+  "status": "completed"
+}

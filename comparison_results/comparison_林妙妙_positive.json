@@ -1,0 +1,24 @@
+{
+  "character": "林妙妙",
+  "target_sentiment": "positive",
+  "metrics": {
+    "vanilla": {
+      "avg_character_hit_rate": 0.06333333333333334,
+      "avg_sentiment_match": 0.9101994633674622,
+      "avg_text_length": 66.26666666666667,
+      "avg_diversity": 0.7056106019159727,
+      "character_hit_rate_std": 0.053124591501697425,
+      "sentiment_match_std": 0.07722456548313242,
+      "samples": 15
+    },
+    "modified": {
+      "avg_character_hit_rate": 0.24000000000000002,
+      "avg_sentiment_match": 0.9527383017539978,
+      "avg_text_length": 58.8,
+      "avg_diversity": 0.6505925155925156,
+      "character_hit_rate_std": 0.019999999999999993,
+      "sentiment_match_std": 0.021808740343258727,
+      "samples": 15
+    }
+  }
+}

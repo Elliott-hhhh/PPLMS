@@ -1,0 +1,7 @@
+﻿Experiment,Type,Perplexity,Diversity TTR,Sentiment Accuracy
+original_pplm_positive,pplm_bow,38.26233074772203,0.46052154195011336,0.9
+modified_pplm_positive,pplm_bow,44.132171569533206,0.4377048494983278,0.9
+original_pplm_negative,pplm_bow,35.44496771624104,0.46210811581800026,0.8
+modified_pplm_negative,pplm_bow,39.09196084722486,0.43763905888752885,0.9
+original_pplm_neutral,pplm_bow,43.38554653675608,0.46692456479690525,0.7
+modified_pplm_neutral,pplm_bow,44.20588645327674,0.4718157181571816,0.8
