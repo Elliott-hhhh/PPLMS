@@ -18,7 +18,8 @@ PPLMS/
 │  └─ CPED实验方案总结.md # 实验方案详细文档
 │
 ├─ ppls_model/               # PPLS模型代码
-│  └─ generate_ppls.py       # 改进版PPLM生成器
+│  ├─ generate_ppls.py       # 改进版PPLM生成器
+│  └─ words_sentiment.py     # 情感分析模块
 │
 ├─ paper_code/               # 原始PPLM论文代码
 │  ├─ discrim_models/        # 判别器模型
@@ -28,37 +29,34 @@ PPLMS/
 ├─ processed_cped/           # 处理后的CPED数据集
 │  └─ bow_files/             # 情感词袋文件
 │
-├─ human_annotation/         # 人工标注数据
-├─ logs/                     # 日志文件
-├─ output/                   # 实验输出结果
-└─ __pycache__/              # Python缓存文件
+└─ 其他原文件和文件夹...
 ```
 
 ## 核心功能
 
-### 1. 原始PPLM功能
-- 基于词袋(Bag of Words)的文本控制
-- 基于判别器(Discriminator)的文本控制
-- 支持多种情感和主题控制
-- 提供完整的超参数调优指南
+### 1. PPLS模型（改进版PPLM）
+- **中文生成优化**：使用Qwen3-4B模型，针对中文文本生成进行了优化
+- **情感控制**：通过情感词袋生成特定情感倾向的文本
+- **个性化词汇**：支持用户自定义词汇来引导文本生成
+- **上下文感知优化**：根据已生成内容动态调整控制强度
+- **词袋词冷却机制**：通过控制词袋词使用频率避免过度干预
+- **直接logits修改**：移除复杂的梯度计算，提高计算效率
 
-### 2. 中文扩展功能
-- 针对中文文本生成进行了优化
-- 支持CPED中文诗歌情感数据集
-- 实现了改进版PPLM模型(PPLS)
-- 提供完整的中文情感控制实验方案
+### 2. CPED数据集对比实验
+- 完整的中文情感控制实验框架
+- 支持vanilla GPT2、原始PPLM和改进版PPLM的对比
+- 全面的评估指标：困惑度、多样性、情感准确率
+- 自动化实验执行和结果分析
 
-### 3. 改进版PPLM(PPLS)创新点
+### 3. 核心创新点
 
-1. **权重调整机制**：引入多因子权重计算公式
+1. **权重调整机制**
    ```python
    weight = base_weight * context_adjustment * sentiment_factor
    ```
 
 2. **词袋词冷却机制**：通过`cooldown_duration`控制干预间隔，避免过度干预
-
 3. **上下文感知优化**：根据已生成内容动态调整控制强度
-
 4. **直接logits修改**：移除复杂的梯度计算，提高计算效率
 
 ## 快速开始
@@ -71,22 +69,22 @@ pip install -r requirements.txt
 
 ### 基础使用示例
 
-#### PPLMS模型
+#### 基础文本生成
 
 ```bash
 python -m ppls_model.generate_ppls --cond_text "你喜欢我吗" --length 20 --stepsize 0.005 --temperature 0.9 --top_k 100 --num_samples 1 --num_iterations 3
 ```
 
-#### 词袋模式控制
+#### 情感控制生成
 
 ```bash
-python -m ppls_model.generate_ppls -B "./user_vocab.txt" --cond_text "今天天气" --length 50 --gamma 1.5 --num_iterations 3 --num_samples 10 --stepsize 0.03 --window_length 5 --kl_scale 0.01 --gm_scale 0.99 --sample
+python -m ppls_model.generate_ppls --sentiment_bag_of_words "高兴:1;快乐:1;难过:-1;悲伤:-1" --cond_text "今天天气" --length 50 --gamma 1.5 --num_iterations 3 --num_samples 10 --stepsize 0.03 --window_length 5 --kl_scale 0.01 --gm_scale 0.99 --sample
 ```
 
-#### 判别器模式控制
+#### 个性化词汇生成
 
 ```bash
-python -m ppls_model.generate_ppls -D sentiment --class_label 2 --cond_text "我的狗死了" --length 50 --gamma 1.0 --num_iterations 10 --num_samples 10 --stepsize 0.04 --kl_scale 0.01 --gm_scale 0.95 --sample
+python -m ppls_model.generate_ppls --user_vocab "path/to/your/vocab.txt" --cond_text "我的梦想是" --length 50 --stepsize 0.04 --num_iterations 5 --num_samples 5
 ```
 
 ## CPED数据集对比实验
@@ -95,22 +93,22 @@ python -m ppls_model.generate_ppls -D sentiment --class_label 2 --cond_text "我
 
 1. **数据集预处理**
    ```bash
-   python cped_experiment/prepare_cped_dataset.py --input_file ./data/cped/train_split.csv --output_dir ./processed_cped
+   python -m cped_experiment.prepare_cped_dataset --input_file ./data/cped/train_split.csv --output_dir ./processed_cped
    ```
 
 2. **训练情感判别器**
    ```bash
-   python cped_experiment/train_cped_discriminator.py --data_dir ./processed_cped --output_dir ./cped_discriminator
+   python -m cped_experiment.train_cped_discriminator --data_dir ./processed_cped --output_dir ./cped_discriminator
    ```
 
 3. **执行对比实验**
    ```bash
-   python cped_experiment/run_cped_experiment.py --experiments all --output_dir ./output/experiments
+   python -m cped_experiment.run_cped_experiment --experiments all --output_dir ./output/experiments
    ```
 
 4. **分析实验结果**
    ```bash
-   python cped_experiment/analyze_cped_results.py --results_dir ./output/experiments --output_dir ./output/analysis
+   python -m cped_experiment.analyze_cped_results --results_dir ./output/experiments --output_dir ./output/analysis
    ```
 
 ### 实验配置

@@ -18,7 +18,8 @@ PPLMS/
 │  └─ CPED实验方案总结.md # Chinese experiment documentation
 │
 ├─ ppls_model/               # PPLS (Modified PPLM) model
-│  └─ generate_ppls.py       # Enhanced PPLM generator
+│  ├─ generate_ppls.py       # Enhanced PPLM generator
+│  └─ words_sentiment.py     # Sentiment analysis module
 │
 ├─ paper_code/               # Original PPLM paper implementation
 │  ├─ discrim_models/        # Discriminator models
@@ -33,19 +34,21 @@ PPLMS/
 
 ## Key Features
 
-### 1. Original PPLM Functionality
-- Bag-of-Words (BoW) control for text generation
-- Discriminator-based control for sentiment and topics
-- Support for multiple control objectives
-- Comprehensive hyperparameter tuning guide
+### 1. PPLS Model (Modified PPLM)
+- **Enhanced Chinese Support**: Optimized for Chinese text generation with Qwen3-4B model
+- **Sentiment Control**: Generate text with specific emotional tones using sentiment word bags
+- **Personalized Vocabulary**: Support for user-defined vocabulary to guide text generation
+- **Context-Aware Optimization**: Dynamically adjusts control strength based on generated content
+- **Word Cooling Mechanism**: Prevents over-intervention by controlling word usage frequency
+- **Direct Logits Modification**: Improved efficiency by removing complex gradient calculations
 
-### 2. Chinese Extensions
-- Enhanced support for Chinese text generation
-- Integration with CPED (Chinese Poetry Emotion Dataset)
-- Modified PPLM model (PPLS) with improved Chinese support
+### 2. CPED Dataset Experiments
 - Complete experimental framework for Chinese sentiment control
+- Model comparison between vanilla GPT2, original PPLM, and modified PPLM
+- Comprehensive evaluation metrics: perplexity, diversity, sentiment accuracy
+- Automated experiment execution and result analysis
 
-### 3. PPLS (Modified PPLM) Innovations
+### 3. Core Innovations
 
 1. **Weight Adjustment Mechanism**
    ```python
@@ -66,22 +69,22 @@ pip install -r requirements.txt
 
 ### Basic Usage Examples
 
-#### PPLS Model (Modified PPLM)
+#### Basic Text Generation
 
 ```bash
 python -m ppls_model.generate_ppls --cond_text "你喜欢我吗" --length 20 --stepsize 0.005 --temperature 0.9 --top_k 100 --num_samples 1 --num_iterations 3
 ```
 
-#### Bag-of-Words Control
+#### Sentiment Control Generation
 
 ```bash
-python -m ppls_model.generate_ppls -B "./user_vocab.txt" --cond_text "今天天气" --length 50 --gamma 1.5 --num_iterations 3 --num_samples 10 --stepsize 0.03 --window_length 5 --kl_scale 0.01 --gm_scale 0.99 --sample
+python -m ppls_model.generate_ppls --sentiment_bag_of_words "高兴:1;快乐:1;难过:-1;悲伤:-1" --cond_text "今天天气" --length 50 --gamma 1.5 --num_iterations 3 --num_samples 10 --stepsize 0.03 --window_length 5 --kl_scale 0.01 --gm_scale 0.99 --sample
 ```
 
-#### Discriminator Control
+#### Personalized Vocabulary Generation
 
 ```bash
-python -m ppls_model.generate_ppls -D sentiment --class_label 2 --cond_text "我的狗死了" --length 50 --gamma 1.0 --num_iterations 10 --num_samples 10 --stepsize 0.04 --kl_scale 0.01 --gm_scale 0.95 --sample
+python -m ppls_model.generate_ppls --user_vocab "path/to/your/vocab.txt" --cond_text "我的梦想是" --length 50 --stepsize 0.04 --num_iterations 5 --num_samples 5
 ```
 
 ## CPED Dataset Experiments
@@ -90,22 +93,22 @@ python -m ppls_model.generate_ppls -D sentiment --class_label 2 --cond_text "我
 
 1. **Dataset Preprocessing**
    ```bash
-   python cped_experiment/prepare_cped_dataset.py --input_file ./data/cped/train_split.csv --output_dir ./processed_cped
+   python -m cped_experiment.prepare_cped_dataset --input_file ./data/cped/train_split.csv --output_dir ./processed_cped
    ```
 
 2. **Train Sentiment Discriminator**
    ```bash
-   python cped_experiment/train_cped_discriminator.py --data_dir ./processed_cped --output_dir ./cped_discriminator
+   python -m cped_experiment.train_cped_discriminator --data_dir ./processed_cped --output_dir ./cped_discriminator
    ```
 
 3. **Run Comparison Experiments**
    ```bash
-   python cped_experiment/run_cped_experiment.py --experiments all --output_dir ./output/experiments
+   python -m cped_experiment.run_cped_experiment --experiments all --output_dir ./output/experiments
    ```
 
 4. **Analyze Results**
    ```bash
-   python cped_experiment/analyze_cped_results.py --results_dir ./output/experiments --output_dir ./output/analysis
+   python -m cped_experiment.analyze_cped_results --results_dir ./output/experiments --output_dir ./output/analysis
    ```
 
 ### Evaluation Metrics
