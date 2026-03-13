@@ -71,16 +71,22 @@ pip install -r requirements.txt
 
 ### 基础使用示例
 
+#### PPLMS模型
+
+```bash
+python -m ppls_model.generate_ppls --cond_text "你喜欢我吗" --length 20 --stepsize 0.005 --temperature 0.9 --top_k 100 --num_samples 1 --num_iterations 3
+```
+
 #### 词袋模式控制
 
 ```bash
-python run_pplm.py -B military --cond_text "土豆" --length 50 --gamma 1.5 --num_iterations 3 --num_samples 10 --stepsize 0.03 --window_length 5 --kl_scale 0.01 --gm_scale 0.99 --colorama --sample
+python -m ppls_model.generate_ppls -B "./user_vocab.txt" --cond_text "今天天气" --length 50 --gamma 1.5 --num_iterations 3 --num_samples 10 --stepsize 0.03 --window_length 5 --kl_scale 0.01 --gm_scale 0.99 --sample
 ```
 
 #### 判别器模式控制
 
 ```bash
-python run_pplm.py -D sentiment --class_label 2 --cond_text "我的狗死了" --length 50 --gamma 1.0 --num_iterations 10 --num_samples 10 --stepsize 0.04 --kl_scale 0.01 --gm_scale 0.95 --sample
+python -m ppls_model.generate_ppls -D sentiment --class_label 2 --cond_text "我的狗死了" --length 50 --gamma 1.0 --num_iterations 10 --num_samples 10 --stepsize 0.04 --kl_scale 0.01 --gm_scale 0.95 --sample
 ```
 
 ## CPED数据集对比实验
